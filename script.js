@@ -1,6 +1,7 @@
 var controls = document.querySelectorAll('.control');
 var myth = document.querySelectorAll('.myths');
 
+// for each click of a control, change slide
 controls.forEach(c => c.addEventListener('click', ()=>{
     //get data target number
     var cAttr = c.getAttribute('data-target');
