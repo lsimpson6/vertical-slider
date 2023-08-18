@@ -17,7 +17,7 @@ controls.forEach(c => c.addEventListener('click', ()=>{
     }
 
     myth[cAttr].classList.remove('d-none');
-    myth[i].classList.add('fade');
+    myth[cAttr].classList.add('fade');
     myth[cAttr].classList.add('d-flex');
     controls[cAttr].setAttribute('data-active', "true");
     
