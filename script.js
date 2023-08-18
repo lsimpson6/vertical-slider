@@ -1,5 +1,5 @@
 var controls = document.querySelectorAll('.control');
-var myth = docuemnt.querySelectorAll('.myths');
+var myth = document.querySelectorAll('.myths');
 
 controls.forEach(c => c.addEventListener('click', ()=>{
     //get data target number
