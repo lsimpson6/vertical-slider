@@ -9,13 +9,13 @@ controls.forEach(c => c.addEventListener('click', ()=>{
     // if the attribute tartget is the same as control
     for(let i = 0; i < myth.length; i ++){
         if(myth[i].getAttribute = cAttr){
-            myth[i].classList.remove('hidden');
-            myth[i].classList.add('fade');
+            myth[i].classList.remove('d-none');
+            myth[i].classList.add('d-flex');
             controls[i].setAttribute('data-active', "true");
-        }else {
+        }else if( myth[i] != cAttr){
             controls[i].setAttribute('data-active', "false");
-            myth[i].classList.remove('fade');
-            myth[i].classList.add('hidden');
+            myth[i].classList.remove('d-flex');
+            myth[i].classList.add('d-none');
         }
     }
     
