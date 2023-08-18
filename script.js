@@ -7,15 +7,19 @@ controls.forEach(c => c.addEventListener('click', ()=>{
     var cAttr = c.getAttribute('data-target');
     // unhide data-myth that matches that number
     // if the attribute tartget is the same as control
-    for(let i = 0; i < myth.count; i ++){
+    for(let i = 0; i < myth.length; i ++){
         if(myth[i].getAttribute = cAttr){
-            myth[i].classList.remove('hidden');
-            myth[i].classList.add('fade');
-            controls[i].setAttribute('data-active', "true");
+            if(($(myth[i].hasClass(hidden)))){
+                myth[i].classList.remove('hidden');
+                myth[i].classList.add('fade');
+                controls[i].setAttribute('data-active', "true");
+            }
         }else {
-            controls[i].setAttribute('data-active', "false");
-            myth[i].classList.remove('fade');
-            myth[i].classList.add('hidden');
+                if(!($(myth[i].hasClass(hidden)))){
+                controls[i].setAttribute('data-active', "false");
+                myth[i].classList.remove('fade');
+                myth[i].classList.add('hidden');
+            }
         }
     }
     
