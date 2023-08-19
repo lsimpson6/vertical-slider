@@ -11,13 +11,11 @@ controls.forEach(c => c.addEventListener('click', ()=>{
         if( myth[i] != cAttr){
             controls[i].setAttribute('data-active', "false");
             myth[i].classList.remove('d-flex');
-            myth[i].classList.remove('fade');
             myth[i].classList.add('d-none');
         }
     }
 
     myth[cAttr].classList.remove('d-none');
-    myth[cAttr].classList.add('fade');
     myth[cAttr].classList.add('d-flex');
     controls[cAttr].setAttribute('data-active', "true");
     
