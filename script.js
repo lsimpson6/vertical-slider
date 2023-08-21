@@ -1,36 +1,26 @@
-var controls = document.querySelectorAll('.control');
-var myth = document.querySelectorAll('.myths');
+var radioControl = document.querySelectorAll('.radio-control');
+var slides = document.querySelectorAll('.item-slides');
 var directionalControls = document.querySelectorAll('.slider-arrow-controls');
-// for each click of a control, change slide
-controls.forEach(c => c.addEventListener('click', ()=>{
-    //get data target number
-    var cAttr = c.getAttribute('data-target');
-    // unhide data-myth that matches that number
-
-    for(let i = 0; i < myth.length; i ++){
-        if( myth[i] != cAttr){
+radioControl.forEach(c => c.addEventListener('click', ()=>{
+    var controlAttribute = c.getAttribute('data-target');
+    for(let i = 0; i < slides.length; i ++){
+        if( slides[i] != controlAttribute){
             setAsInactive(i);
         }
     }
-    setAsActive(cAttr);
-}))
-
-//arrow controls
+    setAsActive(controlAttribute);
+}));
 directionalControls.forEach(d => d.addEventListener('click', ()=>{
-
     var direction = d.getAttribute('data-slider');
     var activeVal;
     var newVal;
-    // get active value from data-target by checking for data active value
-    for(let i = 0; i < controls.length; i ++){
-        if(controls[i].getAttribute("data-active") == "true"){
-            // gives an int of a number from 0 to max item count
-            activeVal = controls[i].getAttribute("data-target");
+    for(let i = 0; i < radioControl.length; i ++){
+        if(radioControl[i].getAttribute("data-active") == "true"){
+            activeVal = radioControl[i].getAttribute("data-target");
             setAsInactive(activeVal);
         }
     }
-
-    var maxItems = controls.length - 1;
+    var maxItems = radioControl.length - 1;
     switch(direction){
         case "previous":
             if(activeVal <= 0){
@@ -51,19 +41,15 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
             }
         break;
     }
-
     setAsActive(newVal);
-    
-}))
-
-function setAsActive(cAttr){
-    myth[cAttr].classList.remove('d-none');
-    myth[cAttr].classList.add('d-flex');
-    controls[cAttr].setAttribute('data-active', "true");
+}));
+function setAsActive(i){
+    slides[i].classList.remove('d-none');
+    slides[i].classList.add('d-flex');
+    radioControl[i].setAttribute('data-active', "true");
 }
-
-function setAsInactive(i){
-    controls[i].setAttribute('data-active', "false");
-    myth[i].classList.remove('d-flex');
-    myth[i].classList.add('d-none');
+function setAsInactive(x){
+    radioControl[x].setAttribute('data-active', "false");
+    slides[x].classList.remove('d-flex');
+    slides[x].classList.add('d-none');
 }
