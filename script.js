@@ -31,7 +31,7 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
 
     switch(direction){
         case "previous":
-            if(direction < 0){
+            if(activeVal <= 0){
                 newVal = controls.length;
             }
             else {
@@ -39,7 +39,7 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
             }
         break;
         case "next":
-            if(direction >= controls.length){
+            if(activeVal >= controls.length){
                 newVal = 0;
             }
             else {
