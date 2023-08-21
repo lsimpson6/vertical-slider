@@ -37,7 +37,8 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
                 newVal = maxItems;
             }
             else {
-                newVal = activeVal --;
+                activeVal -= 1;
+                newVal = activeVal;
             }
         break;
         case "next":
@@ -45,7 +46,8 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
                 newVal = 0;
             }
             else {
-                newVal = activeVal++;
+                activeVal += 1;
+                newVal = activeVal;
             }
         break;
     }
