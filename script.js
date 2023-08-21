@@ -9,13 +9,7 @@ controls.forEach(c => c.addEventListener('click', ()=>{
 
     for(let i = 0; i < myth.length; i ++){
         if( myth[i] != cAttr){
-<<<<<<< HEAD
             setAsInactive(i);
-=======
-            controls[i].setAttribute('data-active', "false");
-            myth[i].classList.remove('d-flex');
-            myth[i].classList.add('d-none');
->>>>>>> dbe4f5ef0b37ea64e9b7f2efebe175fa600310bf
         }
     }
     setAsActive(cAttr);
