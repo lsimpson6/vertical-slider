@@ -49,7 +49,7 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
     }
 
     setAsInactive(activeVal);
-    setActive(newVal);
+    setAsActive(newVal);
 
     //if next, increease by 1, if greater than number of elements set to 0, if smaller than elements set to max items
 
@@ -57,7 +57,7 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
     
 }))
 
-function setActive(cAttr){
+function setAsActive(cAttr){
     myth[cAttr].classList.remove('d-none');
     myth[cAttr].classList.add('d-flex');
     controls[cAttr].setAttribute('data-active', "true");
@@ -66,6 +66,5 @@ function setActive(cAttr){
 function setAsInactive(i){
     controls[i].setAttribute('data-active', "false");
     myth[i].classList.remove('d-flex');
-    myth[i].classList.remove('fade');
     myth[i].classList.add('d-none');
 }
