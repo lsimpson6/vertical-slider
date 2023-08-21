@@ -18,7 +18,7 @@ controls.forEach(c => c.addEventListener('click', ()=>{
 //arrow controls
 directionalControls.forEach(d => d.addEventListener('click', ()=>{
 
-    var direction = d.getAttribute('slider-arrow-controls');
+    var direction = d.getAttribute('data-slider');
     var activeVal;
     var newVal;
     // get active value from data-target by checking for data active value
