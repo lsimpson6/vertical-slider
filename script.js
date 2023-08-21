@@ -45,7 +45,8 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
                 newVal = 0;
             }
             else {
-                newVal = activeVal + 1;
+                newVal = activeVal;
+                newVal += 1;
             }
         break;
     }
