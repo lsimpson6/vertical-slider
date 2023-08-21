@@ -26,20 +26,22 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
         if(controls[i].getAttribute("data-active") == "true"){
             // gives an int of a number from 0 to max item count
             activeVal = controls[i].getAttribute("data-target");
+            setAsInactive(activeVal);
         }
     }
 
+    var maxItems = controls.length - 1;
     switch(direction){
         case "previous":
             if(activeVal <= 0){
-                newVal = controls.length;
+                newVal = maxItems;
             }
             else {
                 newVal = activeVal - 1;
             }
         break;
         case "next":
-            if(activeVal >= controls.length){
+            if(activeVal >= maxItems){
                 newVal = 0;
             }
             else {
@@ -48,7 +50,6 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
         break;
     }
 
-    setAsInactive(activeVal);
     setAsActive(newVal);
 
     //if next, increease by 1, if greater than number of elements set to 0, if smaller than elements set to max items
