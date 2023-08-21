@@ -21,7 +21,6 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
     var direction = d.getAttribute('data-slider');
     var activeVal;
     var newVal;
-    var add;
     // get active value from data-target by checking for data active value
     for(let i = 0; i < controls.length; i ++){
         if(controls[i].getAttribute("data-active") == "true"){
@@ -38,8 +37,7 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
                 newVal = maxItems;
             }
             else {
-                newVal = activeVal;
-                add = false;
+                newVal = activeVal --;
             }
         break;
         case "next":
@@ -47,28 +45,16 @@ directionalControls.forEach(d => d.addEventListener('click', ()=>{
                 newVal = 0;
             }
             else {
-                newVal = activeVal;
-                add = true;
+                newVal = activeVal++;
             }
-            
         break;
     }
 
-    setAsActive(newVal, add);
-
-    //if next, increease by 1, if greater than number of elements set to 0, if smaller than elements set to max items
-
-    // if previous, decrease by 1, if smaller than number of elements set to 0, if greater than elements set to max items
+    setAsActive(newVal);
     
 }))
 
-function setAsActive(cAttr, addSub){
-
-    if(addSub){
-        cAttr = cAttr++;
-    }else {
-        cAttr = cAttr--;
-    }
+function setAsActive(cAttr){
     myth[cAttr].classList.remove('d-none');
     myth[cAttr].classList.add('d-flex');
     controls[cAttr].setAttribute('data-active', "true");
